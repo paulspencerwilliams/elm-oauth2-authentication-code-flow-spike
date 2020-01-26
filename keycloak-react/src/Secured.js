@@ -12,7 +12,7 @@ class Secured extends Component {
 
     componentDidMount() {
         const keycloak = Keycloak('/keycloak.json');
-        keycloak.init({onLoad: 'login-required', promiseType: "native"}).then(authenticated => {
+        keycloak.init({onLoad: 'login-required', promiseType: "native", pkceMethod: "S256"}).then(authenticated => {
             this.setState({ keycloak: keycloak, authenticated: authenticated })
         })
     }
