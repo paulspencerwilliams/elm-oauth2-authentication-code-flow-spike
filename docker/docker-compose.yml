@@ -5,6 +5,9 @@ services:
     environment:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=admin
+      - KEYCLOAK_IMPORT=/opt/jboss/keycloak/realm-export.json
     ports:
       - "8080:8080"
+    volumes:
+      - ${PWD}/realm-export.json:/opt/jboss/keycloak/realm-export.json
 
